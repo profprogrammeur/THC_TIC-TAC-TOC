@@ -10,19 +10,25 @@ class Board
   @a1 = BoardCase.new("a1")
   @a2 = BoardCase.new("a2")
   @a3 = BoardCase.new("a3")
-
-  @a2.value="X" #test
+  @b1 = BoardCase.new("b1")
+  @b2 = BoardCase.new("b2")
+  @b3 = BoardCase.new("b3")
+  @c1 = BoardCase.new("c1")
+  @c2 = BoardCase.new("c2")
+  @c3 = BoardCase.new("c3")
+  @case_array = [@a1,@a2,@a3,@b1,@b2,@b3,@c1,@c2,@c3]
 
   end
 
 def print_board
+      system "clear"
       puts   "     1   2   3" 
       puts   "   -------------"  
-      puts "A  | #{@a1.value} | #{@a2.value} | #{@a3.value} |"
+      puts "a  | #{@a1.value} | #{@a2.value} | #{@a3.value} |"
       puts   "   -------------"
-      puts "B  | O | O | O |" 
+      puts "b  | #{@b1.value} | #{@b2.value} | #{@b3.value} |" 
       puts   "   -------------" 
-      puts "C  | O | O | O |" 
+      puts "c  | #{@c1.value} | #{@c2.value} | #{@c3.value} |"
       puts   "   -------------" 
 
    end
@@ -33,10 +39,14 @@ def print_board
     #2) change la BoardCase jouée en fonction de la valeur du joueur (X ou O)
   end
 
-  def victory?
+  def victory? (occupied_cases)
     #TO DO : une méthode qui vérifie le plateau et indique s'il y a un vainqueur ou match nul
-
-    
+  continue=true
+    if occupied_cases.count>=9
+      puts " FIN FAIM FEINT FEINS"
+      continue=false
+    end
+  return continue    
   end
 
 end
