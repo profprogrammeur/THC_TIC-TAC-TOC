@@ -11,10 +11,8 @@ require "show"
 
 system "clear"
 puts "---------- DEBUT DU JEU ------------------"
-
 player1 = Player.new("X")
 player2 = Player.new("O")
-
 puts " "
 puts "La partie peut commencer."
 sleep(2)

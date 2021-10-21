@@ -9,15 +9,9 @@ class Application
   end 
 
   def perform
-    # TO DO : méthode qui initialise le jeu puis contient des boucles while pour faire tourner le jeu tant que la partie n'est pas terminée.
-    # while !@game_board.is_over?
     @game_board.print_board
-
     occupied_cases = []
-    # possible_cases=["a1","a2","a3","b1","b2","b3","c1","c2","c3"]
-    # try_other_case = false
-
-    while @game_board.victory?(occupied_cases)
+    while @game_board.victory?(occupied_cases,@player2.name)
       puts "#{@player1.name} quelle case X ? " 
       print "> "
       input_1 = gets.chomp.to_s 
@@ -31,7 +25,8 @@ class Application
         sleep(0.5)
         @game_board.print_board
 
-        if @game_board.victory?(occupied_cases)==false
+        if @game_board.victory?(occupied_cases,@player1.name)==false
+          
         then break end
       puts "#{@player2.name} quelle case O ?" 
       print "> "
@@ -45,11 +40,6 @@ class Application
         occupied_cases.push(input_2)
         sleep(0.5)
         @game_board.print_board
-
- 
-
-    # @game_board.print_board
-    # game=new.Game
     end
   end
 
@@ -64,7 +54,6 @@ class Application
       when "c1" then @game_board.case_array[6].value = value
       when "c2" then @game_board.case_array[7].value = value 
       when "c3" then @game_board.case_array[8].value = value
-    
     else
       puts "Pas possible"
       print "> "
